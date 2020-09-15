@@ -49,6 +49,7 @@ stages:
          --template "@/root/junit.tpl" \
          -o /work/junit-report-low-med.xml \
          $(imageName):$(tag)
+        echo "##[endgroup]"
 
         echo "##[group] Image Vulnerability Scan (HIGH,CRITICAL)"
         docker run \
@@ -67,6 +68,7 @@ stages:
          --template "@/root/junit.tpl" \
          -o /work/junit-report-high-crit.xml \
          $(imageName):$(tag)
+        echo "##[endgroup]"
 
   - task: PublishTestResults@2
     displayName: Trivy - Low and Medium Vulnerabilities
