@@ -58,6 +58,7 @@ stages:
          -v $PWD:/work/ \
          --env GITHUB_TOKEN \
          aquasec/trivy \
+         --skip-update \
          --light \
          --no-progress \
          --severity HIGH,CRITICAL \
